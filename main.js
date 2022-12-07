@@ -100,6 +100,7 @@ postDiv.innerHTML =
 
 });
 
+const likedPosts = [];
 
 const likeBtns = document.querySelectorAll('a.like-button');
 
@@ -116,11 +117,16 @@ likeBtns.forEach((likeBtn,index) =>{
         if(likeBtns[index].classList.contains('like-button--liked')){
             likeValue++;
             likeCounterRef.innerHTML = likeValue;
+            likedPosts.push(posts[index].id);
         } else {
             likeCounterRef.innerHTML = likeValue;
+            console.log(likedPosts.indexOf(posts[index].id));
+            likedPosts.splice([likedPosts.indexOf(posts[index].id)],1);
         }
+        console.log(likedPosts);
     });
-})
+});
+
 
 
 
