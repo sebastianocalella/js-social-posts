@@ -92,24 +92,35 @@ postDiv.innerHTML =
                 </a>
             </div>
             <div class="likes__counter">
-                Piace a <b id="${id}" class="js-likes-counter">${likes}</b> persone
+                Piace a <b id="counter-${id}" class="js-likes-counter">${likes}</b> persone
             </div>
         </div> 
     </div>            
 </div>`
 
+});
+
+
 const likeBtns = document.querySelectorAll('a.like-button');
 
+
 likeBtns.forEach((likeBtn,index) =>{
-    likeBtns[index].addEventListener('click', function(){
+
+    const likeCounterRef = document.getElementById(`counter-${posts[index].id}`);
+
+    likeBtn.addEventListener('click', function(){
+
+        let likeValue = posts[index].likes;
+        
         likeBtns[index].classList.toggle('like-button--liked');
+        if(likeBtns[index].classList.contains('like-button--liked')){
+            likeValue++;
+            likeCounterRef.innerHTML = likeValue;
+        } else {
+            likeCounterRef.innerHTML = likeValue;
+        }
     });
 })
-
-
-
-
-});
 
 
 
