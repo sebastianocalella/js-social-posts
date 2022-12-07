@@ -57,7 +57,11 @@ const posts = [
 ];
 
 const domReference = document.getElementById('container');
-const postDiv = createHtmlElement('div');
+
+posts.forEach((element) => {
+    const postDiv = createHtmlElement('div');
+    domReference.appendChild(postDiv);
+
 postDiv.innerHTML = 
 `<div class="post">
     <div class="post__header">
@@ -90,7 +94,8 @@ postDiv.innerHTML =
     </div>            
 </div>`
 
-domReference.appendChild(postDiv);
+});
+
 
 
 
